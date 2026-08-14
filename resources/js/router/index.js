@@ -3,8 +3,8 @@ import { getUser } from '../services/auth'
 
 import Home from '../pages/Home.vue'
 import Login from '../pages/auth/Login.vue'
-import News from '../pages/admin/News.vue'
-
+import News from '../pages/admin/New/News.vue'
+import NewShow from '../pages/New/NewShow.vue'
 const router = createRouter({
     history: createWebHistory(),
 
@@ -15,6 +15,11 @@ const router = createRouter({
             component: Home,
         },
         {
+            path: '/news/:id',
+            name: 'news.show',
+            component: NewShow,
+        },
+        {
             path: '/login',
             name: 'login',
             component: Login,
@@ -23,7 +28,7 @@ const router = createRouter({
             },
         },
         {
-            path: '/admin',
+            path: '/admin/news',
             name: 'admin.news',
             component: News,
             meta: {

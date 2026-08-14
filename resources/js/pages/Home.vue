@@ -1,5 +1,9 @@
 <script setup>
+import { onMounted, ref } from 'vue'
 import AppLayout from '../layouts/AppLayout.vue'
+import NewsList from '../components/New/NewsList.vue'
+
+const news = ref([])
 </script>
 
 <template>
@@ -12,27 +16,7 @@ import AppLayout from '../layouts/AppLayout.vue'
             </p>
         </div>
 
-        <div class="news-grid">
-            <Card>
-                <template #title>
-                    Pirma naujiena
-                </template>
-
-                <template #content>
-                    Naujienos tekstas...
-                </template>
-            </Card>
-
-            <Card>
-                <template #title>
-                    Antra naujiena
-                </template>
-
-                <template #content>
-                    Naujienos tekstas...
-                </template>
-            </Card>
-        </div>
+        <NewsList :news="news" />
     </AppLayout>
 </template>
 
@@ -49,11 +33,5 @@ import AppLayout from '../layouts/AppLayout.vue'
 .page-header p {
     margin: 0;
     color: var(--p-surface-500);
-}
-
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
 }
 </style>

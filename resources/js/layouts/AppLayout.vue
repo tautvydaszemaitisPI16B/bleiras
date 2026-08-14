@@ -7,7 +7,7 @@ const router = useRouter()
 const user = getCurrentUser()
 
 const openAdmin = () => {
-    router.push(user ? '/admin' : '/login')
+    router.push(user ? '/admin/news' : '/login')
 }
 
 const logout = async () => {
